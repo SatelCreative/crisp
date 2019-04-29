@@ -17,7 +17,7 @@ Crisp is a javascript library that enables advanced search and filtering capabil
 
 ## When **NOT** to use Crisp
 
-Crisp adds a lot of complexity to a Shopify collection page. In many cases it won't be necessary and could cause headaches. That said, if you are just excited to try Crisp just skip down to [getting started](#getting-started)
+Crisp adds a lot of complexity to a Shopify collection page. In many cases it won't be necessary and could cause headaches. That said, if you are just excited to try Crisp skip down to [getting started](#getting-started)
 
 ### You have a small catalog of products
 
@@ -39,15 +39,19 @@ Crisp is made up of two components, the client and the template. The client is i
 
 Crisp relies on the fairly wellknown technique of using Liquid templates to create pages that can be used as JSON endpoints. This allows the client to load the data which can then be filtered.
 
-The template is simply a secondary template (`collection.crisp.liquid` for example) that will never be seen when viewing the website normally. It starts with the line `{% layout none %}` which tells Shopify not to include the normal framing content of your site (header, tracking scripts, etc.). It then uses Liquid to build a JSON blob that the client will be able to recognize.
+The template is simply a secondary template file in your theme (`collection.crisp.liquid` for example) that will never be seen when viewing the website normally. It starts with the line `{% layout none %}` which tells Shopify not to include the normal framing content of your site (header, tracking scripts, etc.). It then uses Liquid to build a JSON blob that the client will be able to recognize.
 
-The client will then be able to make `fetch` or `ajax` calls to access this JSON data. This can be done by changing the `view` query parameter to match the name of the template (`example.com?view=crisp` for example).
+The client will be able to make `fetch` or `ajax` calls to access this JSON data. This can be done by changing the `view` query parameter to match the name of the template (`example.com?view=crisp` for example).
 
 See the [/templates](/templates) folder for some pre-populated examples of templates.
 
 ### Client
 
+The client is where the "magic" happens. This is where all of the data loading, filtering, and configuration lives.
 
+At it's most basic, you ask the client to get you some, for example, products from the `shoes` collection. The client will load data from the template url (`/collections/shoes?view=crisp`), process it, and return to you to display to the user.
+
+This gets more complicated when you ask tougher questions. If this time you want Size `9` or `10` running shoes in pink or purple things get a little more complicated under the hood but the interface you communicate with remains the same.
 
 
 ## Getting Started
