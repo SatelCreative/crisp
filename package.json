@@ -1,14 +1,18 @@
 {
   "scripts": {
-    "lint": "eslint src/*"
+    "lint": "eslint src/*",
+    "browser": "jest test/browser.test.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "1.8.0",
     "@typescript-eslint/parser": "1.8.0",
+    "chromedriver": "74.0.0",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.2.0",
     "eslint-plugin-prettier": "3.0.1",
+    "jest": "24.8.0",
     "prettier": "1.17.0",
+    "selenium-webdriver": "4.0.0-alpha.1",
     "typescript": "3.4.5"
   }
 }
