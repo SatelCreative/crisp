@@ -1,7 +1,7 @@
 import version from './version';
-import request from './request';
+import request, { isCancel } from './request';
 
-export { version, request };
+export { version, request, isCancel };
 
 export interface Crisp {
   /**
@@ -13,11 +13,17 @@ export interface Crisp {
    * Make a cancellable request
    */
   request: any;
+
+  /**
+   * Checks if an error resulted from cancellation
+   */
+  isCancel: (error: Error) => boolean;
 }
 
 const Crisp: Crisp = {
   version,
   request,
+  isCancel,
 };
 
 export default Crisp;

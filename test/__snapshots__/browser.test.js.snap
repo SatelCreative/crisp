@@ -88,6 +88,8 @@ Array [
 ]
 `;
 
+exports[`Browser Testing browser/requestCancelled generates expected output: requestCancelled 1`] = `"Cancelled Successfully!"`;
+
 exports[`Browser Testing browser/requestSimple generates expected output: requestSimple 1`] = `
 Object {
   "page": 1,
