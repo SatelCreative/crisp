@@ -1,0 +1,11 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true
+  }
+}

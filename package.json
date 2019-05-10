@@ -1,5 +1,8 @@
 {
+  "version": "5.0.0-alpha.0",
   "scripts": {
+    "start": "tsdx -i src --name Crisp watch",
+    "build": "tsdx -i src --name Crisp build",
     "lint": "eslint src/*",
     "browser": "jest test/browser.test.js"
   },
@@ -13,6 +16,7 @@
     "jest": "24.8.0",
     "prettier": "1.17.0",
     "selenium-webdriver": "4.0.0-alpha.1",
+    "tsdx": "0.5.9",
     "typescript": "3.4.5"
   }
 }

@@ -15,7 +15,7 @@ chromeOptions.addArguments('--headless');
 chromeOptions.setLoggingPrefs(loggingPrefs);
 
 const crisp = fs.readFileSync(
-  path.resolve(__dirname, '../dist/crisp.js'),
+  path.resolve(__dirname, '../dist/crisp.umd.production.js'),
   'utf8'
 );
 

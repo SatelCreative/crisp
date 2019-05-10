@@ -1,4 +1,8 @@
+# Built artifacts
 dist
+
+# Cache
+.rts2*
 
 # NPM Lockfile
 package-lock.json
