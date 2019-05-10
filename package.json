@@ -4,9 +4,11 @@
     "start": "tsdx -i src --name Crisp watch",
     "build": "tsdx -i src --name Crisp build",
     "lint": "eslint src/*",
+    "test": "tsdx test --testMatch='<rootDir>/src/**/*.spec.ts'",
     "browser": "jest test/browser.test.js"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.12",
     "@typescript-eslint/eslint-plugin": "1.8.0",
     "@typescript-eslint/parser": "1.8.0",
     "chromedriver": "74.0.0",
