@@ -5429,7 +5429,7 @@ ts-jest@^24.0.2:
     semver "^5.5"
     yargs-parser "10.x"
 
-tsdx@^0.5.9:
+tsdx@0.5.9:
   version "0.5.9"
   resolved "https://registry.yarnpkg.com/tsdx/-/tsdx-0.5.9.tgz#5ec60dfd3fc59d7fe2ad3fdadce21ed264b5a5e0"
   integrity sha512-E2B7rY4mz0omcJ+jjjgkrOCePaVcv8eXja4I/nnlxz7IaSxqu2tMaOorUqeAOx9xntgXGY+cqz0o+HN1ou752Q==

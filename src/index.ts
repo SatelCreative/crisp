@@ -1,16 +1,23 @@
-import Version from './Version';
+import version from './version';
+import request from './request';
 
-export { Version };
+export { version, request };
 
 export interface Crisp {
   /**
    * Installed version of Crisp
    */
-  Version: string;
+  version: string;
+
+  /**
+   * Make a cancellable request
+   */
+  request: any;
 }
 
 const Crisp: Crisp = {
-  Version
+  version,
+  request,
 };
 
 export default Crisp;

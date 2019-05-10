@@ -1,4 +1,3 @@
-// @noflow
 /* eslint-disable */
 var callback = arguments[0];
 

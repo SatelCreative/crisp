@@ -79,7 +79,12 @@ describe('Browser Testing', () => {
         });
       }
 
-      expect(response).toMatchSnapshot(formattedName);
+      // Special case for version
+      if (formattedName === 'version') {
+        expect(typeof response).toEqual('string');
+      } else {
+        expect(response).toMatchSnapshot(formattedName);
+      }
     });
   }
 });

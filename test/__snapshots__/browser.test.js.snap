@@ -88,6 +88,230 @@ Array [
 ]
 `;
 
+exports[`Browser Testing browser/requestSimple generates expected output: requestSimple 1`] = `
+Object {
+  "page": 1,
+  "pages": 21,
+  "payload": Array [
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "stuffed-toys",
+        "toys",
+      ],
+      "title": "10inch Anime Cute Digital Monster Digimon Koromon Soft Plush Toy Doll Pillow",
+    },
+    Object {
+      "tags": Array [
+        "american-girl",
+        "egnition-sample-data",
+        "on-sale",
+        "toys",
+      ],
+      "title": "2014 Holiday Barbie Ornament African-American",
+    },
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "stuffed-toys",
+        "toys",
+      ],
+      "title": "4\\"10cm Digimon Tailmon Plush Toy",
+    },
+    Object {
+      "tags": Array [
+        "egnition-sample-data",
+        "tomy-toys",
+        "toys",
+      ],
+      "title": "Activity Auto",
+    },
+    Object {
+      "tags": Array [
+        "egnition-sample-data",
+        "toys",
+        "toys-r-us",
+      ],
+      "title": "Animal Zone Foam T-Rex",
+    },
+    Object {
+      "tags": Array [
+        "egnition-sample-data",
+        "toys",
+        "toys-r-us",
+      ],
+      "title": "Animal Zone Stegosaurus",
+    },
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "stuffed-toys",
+        "toys",
+      ],
+      "title": "Anime Cartoon Digimon Digital Monsters",
+    },
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "stuffed-toys",
+        "toys",
+      ],
+      "title": "Anime Digimon Adventure Patamon Stuffed Toy Plush Toys",
+    },
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Anime Digimons Digital Monster Tanemon Plush Toys",
+    },
+    Object {
+      "tags": Array [
+        "egnition-sample-data",
+        "hatchimals",
+        "toys",
+      ],
+      "title": "Authentic Hatchimals CollEGGtibles 12-Pack Egg Carton",
+    },
+    Object {
+      "tags": Array [
+        "dragon-ball",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "BANPRESTO BWFC DRAGON BALL Z V6 Trunks",
+    },
+    Object {
+      "tags": Array [
+        "dragon-ball",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Banpresto Dxf Dragon Ball Z 5.9-Inch Raditz Action Figure",
+    },
+    Object {
+      "tags": Array [
+        "dragon-ball",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Banpresto Resolution of Soldiers Dragon Ball Z Mr. Satan Hercule",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie 2-Story House",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie and Ken Dolls",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Art Studio Playset",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Bakery Chef Doll and Playset",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Bistro Cart",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Color Surprise Doll",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Crayola Color-In Fashion Doll and Fashions",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Crayola Rainbow Design Fashion Set",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Crayola Tie-Dye Fashions",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie DreamCamper",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Dreamhouse",
+    },
+  ],
+  "size": 24,
+  "total": 500,
+}
+`;
+
 exports[`Browser Testing browser/simpleGet generates expected output: simpleGet 1`] = `
 Array [
   Object {
@@ -175,5 +399,3 @@ Array [
   },
 ]
 `;
-
-exports[`Browser Testing browser/version generates expected output: version 1`] = `"4.1.0"`;

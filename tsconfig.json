@@ -6,6 +6,7 @@
     "lib": ["dom", "esnext"],
     "strict": true,
     "noImplicitAny": true,
+    "moduleResolution": "node",
     "resolveJsonModule": true
   }
 }

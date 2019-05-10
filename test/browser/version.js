@@ -1,3 +1,3 @@
 // @noflow
 /* eslint-disable */
-arguments[0](Crisp.Version);
+arguments[0](Crisp.version);
