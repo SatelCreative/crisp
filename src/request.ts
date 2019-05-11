@@ -1,21 +1,15 @@
-class CrispCancellationError extends Error {
-  public name: string;
+import { CancelRef, CrispCancellationError } from './cancel';
 
-  public constructor() {
-    super('Crisp Cancellation Exception');
-    Object.setPrototypeOf(this, new.target.prototype);
-    this.name = CrispCancellationError.name;
-  }
-}
-
-export function isCancel(error: Error): boolean {
-  return error instanceof CrispCancellationError;
-}
-
-async function request<R>(
-  url: string,
-  cancelRef?: (cancel: () => void) => void
-): Promise<R> {
+/**
+ * Makes a cancelable XMLHttpRequest to a given url
+ * and then attempts to parse the response as JSON
+ *
+ * @template R data response that is expected
+ * @param {string} url url to fetch the data from
+ * @param {CancelRef} [cancelRef] callback to receive a cancel
+ * @returns {Promise<R>}
+ */
+async function request<R>(url: string, cancelRef?: CancelRef): Promise<R> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
 

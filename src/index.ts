@@ -1,6 +1,8 @@
 import version from './version';
-import request, { isCancel } from './request';
+import request from './request';
+import { isCancel } from './cancel';
 
+// Support tree shaking
 export { version, request, isCancel };
 
 export interface Crisp {
@@ -12,7 +14,7 @@ export interface Crisp {
   /**
    * Make a cancellable request
    */
-  request: any;
+  request: typeof request;
 
   /**
    * Checks if an error resulted from cancellation
@@ -20,10 +22,11 @@ export interface Crisp {
   isCancel: (error: Error) => boolean;
 }
 
+// Support UMD
 const Crisp: Crisp = {
   version,
   request,
-  isCancel,
+  isCancel
 };
 
 export default Crisp;
