@@ -18,6 +18,15 @@ describe('normalizeQuery()', () => {
     });
   });
 
+  it('url encodes characters', () => {
+    const params = { page: 1, view: 'cri%sp^y' };
+
+    expect(normalizeQuery('', params)).toEqual({
+      key: '955844805',
+      query: 'page=1&view=cri%25sp%5Ey'
+    });
+  });
+
   it('normalizes param orders', () => {
     const paramsOptions: any[] = [
       {
