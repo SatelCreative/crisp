@@ -11,6 +11,7 @@ module.exports =  {
   },
   rules:  {
     "prettier/prettier": ["error", { "singleQuote": true }],
-    "@typescript-eslint/explicit-function-return-type": false
+    "@typescript-eslint/explicit-function-return-type": false,
+    "@typescript-eslint/no-explicit-any": false
   },
 };
