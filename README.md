@@ -21,7 +21,7 @@ Crisp adds a lot of complexity to a Shopify collection page. In many cases it wo
 
 ### You have a small catalog of products
 
-It is already easy for your customers to find what they are looking for, there is no need so intimidate them with a bunch of advanced filtering options. Just Shopify's build in Search and Tag filtering should be more than enough.
+It is already easy for your customers to find what they are looking for, there is no need to intimidate them with a bunch of advanced filtering options. Just Shopify's build in Search and Tag filtering should be more than enough.
 
 ### You just want infinite scroll or search previews
 
