@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Browser Testing browser/promiseGet generates expected output: promiseGet 1`] = `
+Array [
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Sky Busters Eurofighter Typhoon Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Sky Busters Boeing AH-64 Apache Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox 9 Car Gift Pack",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Elite Rescue Wave Cruiser",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Treasure Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Grow Pro Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Cookstruction Company Mega Mixer Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Garage 9-Car Pack Gift Set",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Jurassic World Dino Transporters Tyranno-Hauler Vehicle And Figure",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Jurassic World Dino Transporters T. Rex Trailer",
+  },
+]
+`;
+
+exports[`Browser Testing browser/requestCancelled generates expected output: requestCancelled 1`] = `"Cancelled Successfully!"`;
+
+exports[`Browser Testing browser/requestSimple generates expected output: requestSimple 1`] = `
+Object {
+  "page": 1,
+  "pages": 21,
+  "payload": Array [
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "stuffed-toys",
+        "toys",
+      ],
+      "title": "10inch Anime Cute Digital Monster Digimon Koromon Soft Plush Toy Doll Pillow",
+    },
+    Object {
+      "tags": Array [
+        "american-girl",
+        "egnition-sample-data",
+        "on-sale",
+        "toys",
+      ],
+      "title": "2014 Holiday Barbie Ornament African-American",
+    },
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "stuffed-toys",
+        "toys",
+      ],
+      "title": "4\\"10cm Digimon Tailmon Plush Toy",
+    },
+    Object {
+      "tags": Array [
+        "egnition-sample-data",
+        "tomy-toys",
+        "toys",
+      ],
+      "title": "Activity Auto",
+    },
+    Object {
+      "tags": Array [
+        "egnition-sample-data",
+        "toys",
+        "toys-r-us",
+      ],
+      "title": "Animal Zone Foam T-Rex",
+    },
+    Object {
+      "tags": Array [
+        "egnition-sample-data",
+        "toys",
+        "toys-r-us",
+      ],
+      "title": "Animal Zone Stegosaurus",
+    },
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "stuffed-toys",
+        "toys",
+      ],
+      "title": "Anime Cartoon Digimon Digital Monsters",
+    },
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "stuffed-toys",
+        "toys",
+      ],
+      "title": "Anime Digimon Adventure Patamon Stuffed Toy Plush Toys",
+    },
+    Object {
+      "tags": Array [
+        "digimon",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Anime Digimons Digital Monster Tanemon Plush Toys",
+    },
+    Object {
+      "tags": Array [
+        "egnition-sample-data",
+        "hatchimals",
+        "toys",
+      ],
+      "title": "Authentic Hatchimals CollEGGtibles 12-Pack Egg Carton",
+    },
+    Object {
+      "tags": Array [
+        "dragon-ball",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "BANPRESTO BWFC DRAGON BALL Z V6 Trunks",
+    },
+    Object {
+      "tags": Array [
+        "dragon-ball",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Banpresto Dxf Dragon Ball Z 5.9-Inch Raditz Action Figure",
+    },
+    Object {
+      "tags": Array [
+        "dragon-ball",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Banpresto Resolution of Soldiers Dragon Ball Z Mr. Satan Hercule",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie 2-Story House",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie and Ken Dolls",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Art Studio Playset",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Bakery Chef Doll and Playset",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Bistro Cart",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Color Surprise Doll",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Crayola Color-In Fashion Doll and Fashions",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Crayola Rainbow Design Fashion Set",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Crayola Tie-Dye Fashions",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie DreamCamper",
+    },
+    Object {
+      "tags": Array [
+        "barbie",
+        "doll-accessories",
+        "dolls",
+        "egnition-sample-data",
+        "toys",
+      ],
+      "title": "Barbie Dreamhouse",
+    },
+  ],
+  "size": 24,
+  "total": 500,
+}
+`;
+
+exports[`Browser Testing browser/simpleGet generates expected output: simpleGet 1`] = `
+Array [
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Sky Busters Eurofighter Typhoon Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Sky Busters Boeing AH-64 Apache Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox 9 Car Gift Pack",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Elite Rescue Wave Cruiser",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Treasure Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Grow Pro Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Cookstruction Company Mega Mixer Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Garage 9-Car Pack Gift Set",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Jurassic World Dino Transporters Tyranno-Hauler Vehicle And Figure",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Jurassic World Dino Transporters T. Rex Trailer",
+  },
+]
+`;
