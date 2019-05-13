@@ -1,0 +1,54 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  test:
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - checkout
+      - run:
+          name: Lint Workspace
+          command: yarn lint
+      - run:
+          name: Test Workspace
+          command: yarn test
+  # @todo code coverage
+  browser_test:
+    docker:
+      - image: circleci/node:10.15-browsers
+    steps:
+      - checkout
+      # - restore_cache:
+      #     key: dependency-cache-{{ checksum "package.json" }}
+      # - run:
+      #     name: Install Dependencies
+      #     command: yarn install
+      - run:
+          name: Browser Test
+          command: yarn browser
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - browser_test:
+          requires:
+            - build
