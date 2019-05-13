@@ -21,7 +21,9 @@ jobs:
       - run:
           name: Test Workspace
           command: yarn test
-      # @todo code coverage
+      - run:
+          name: Build Crisp
+          command: yarn build
       - run:
           name: Browser Test
           command: yarn browser
