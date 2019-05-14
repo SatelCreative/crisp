@@ -1,4 +1,12 @@
 /**
+ * An object of query parameters
+ * @interface Params
+ */
+export interface Params {
+  [key: string]: string | number;
+}
+
+/**
  * All of crisps supported template types
  */
 export enum TemplateTypes {

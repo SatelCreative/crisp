@@ -1,8 +1,5 @@
 import { hash } from '../vendor';
-
-interface Params {
-  [key: string]: string | number;
-}
+import { Params } from '../types';
 
 interface NormalizedQuery {
   query: string;

@@ -1,15 +1,23 @@
 import { CancelRef, CrispCancellationError } from './cancel';
+import { TemplatePayload } from './types';
+
+export interface Request<E> {
+  (url: string, cancelRef?: CancelRef): Promise<TemplatePayload<E>>;
+}
 
 /**
  * Makes a cancelable XMLHttpRequest to a given url
  * and then attempts to parse the response as JSON
  *
- * @template R data response that is expected
+ * @template E Entity that is expected to be returned
  * @param {string} url url to fetch the data from
  * @param {CancelRef} [cancelRef] callback to receive a cancel
- * @returns {Promise<R>}
+ * @returns {Promise<TemplatePayload<E>>}
  */
-async function request<R>(url: string, cancelRef?: CancelRef): Promise<R> {
+async function request<E>(
+  url: string,
+  cancelRef?: CancelRef
+): Promise<TemplatePayload<E>> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
 
@@ -22,7 +30,7 @@ async function request<R>(url: string, cancelRef?: CancelRef): Promise<R> {
     xhr.addEventListener('load', function(this: XMLHttpRequest) {
       try {
         const data = this.response;
-        const parsed: R = JSON.parse(data);
+        const parsed: TemplatePayload<E> = JSON.parse(data);
         resolve(parsed);
       } catch (error) {
         reject(error);
