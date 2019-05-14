@@ -8,11 +8,12 @@ interface TemplateLoaderConfig<E> {
   request?: Request<E>;
 }
 
-function TemplateLoader<E>({
-  cache = MemoryCache<E>(),
-  request = defaultRequest
-}: TemplateLoaderConfig<E>) {
-  return async (path: string, params: Params): Promise<TemplatePayload<E>> => {
+function TemplateLoader<E>(config: TemplateLoaderConfig<E> = {}) {
+  const { cache = MemoryCache<E>(), request = defaultRequest } = config;
+  return async (
+    path: string,
+    params: Params = {}
+  ): Promise<TemplatePayload<E>> => {
     const { key, query } = normalizeQuery(path, params);
 
     // @todo better error handling when calling into client code

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TemplateLoader() accepts custom cache and request implementations: /foo cache get calls 1`] = `
+Array [
+  Array [
+    "3371046394",
+  ],
+]
+`;
+
+exports[`TemplateLoader() accepts custom cache and request implementations: /foo cache set calls 1`] = `
+Array [
+  Array [
+    "3371046394",
+    Object {
+      "page": 0,
+      "pages": 0,
+      "payload": Array [],
+      "size": 0,
+      "total": 0,
+    },
+  ],
+]
+`;
+
+exports[`TemplateLoader() accepts custom cache and request implementations: /foo request calls 1`] = `
+Array [
+  Array [
+    "/foo?",
+  ],
+]
+`;
+
+exports[`TemplateLoader() accepts custom cache and request implementations: /foo store state 1`] = `
+Object {
+  "3371046394": Object {
+    "page": 0,
+    "pages": 0,
+    "payload": Array [],
+    "size": 0,
+    "total": 0,
+  },
+}
+`;
