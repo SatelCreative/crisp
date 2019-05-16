@@ -1,5 +1,184 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Browser Testing browser/filterFiltered generates expected output: filterFiltered 1`] = `
+Array [
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Treasure Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Grow Pro Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Garage 9-Car Pack Gift Set",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Fire Rescue Boat",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "hot-wheels",
+      "on-sale",
+      "star-wars",
+      "toys",
+    ],
+    "title": "HOT WHEELS Star Wars Flight Controller Handheld Accessory",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "hot-wheels",
+      "on-sale",
+      "star-wars",
+      "toys",
+    ],
+    "title": "Hot Wheels Star Wars Blast Attack Resistance X-Wing Fighter Starship",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "hot-wheels",
+      "on-sale",
+      "star-wars",
+      "toys",
+    ],
+    "title": "Star Wars Rogue One Starship, 4-pack",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "hot-wheels",
+      "on-sale",
+      "star-wars",
+      "toys",
+    ],
+    "title": "Hot Wheels Star Wars Battle of Geonosis Play Set",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "hot-wheels",
+      "on-sale",
+      "star-wars",
+      "toys",
+    ],
+    "title": "Hot Wheels Star Wars Tie Fighter Blast-Out Battle Play Set",
+  },
+]
+`;
+
+exports[`Browser Testing browser/filterSimple generates expected output: filterSimple 1`] = `
+Array [
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Sky Busters Eurofighter Typhoon Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Sky Busters Boeing AH-64 Apache Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox 9 Car Gift Pack",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Elite Rescue Wave Cruiser",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Treasure Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Grow Pro Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Cookstruction Company Mega Mixer Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Garage 9-Car Pack Gift Set",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Jurassic World Dino Transporters Tyranno-Hauler Vehicle And Figure",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Jurassic World Dino Transporters T. Rex Trailer",
+  },
+]
+`;
+
 exports[`Browser Testing browser/requestCancelled generates expected output: requestCancelled 1`] = `"Cancelled Successfully!"`;
 
 exports[`Browser Testing browser/requestSimple generates expected output: requestSimple 1`] = `

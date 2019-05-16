@@ -1,16 +1,16 @@
 /**
  * The error that is thrown to indicate cancellation
  *
- * @class CrispCancellationError
+ * @class Cancel
  * @extends {Error}
  */
-export class CrispCancellationError extends Error {
+export class Cancel extends Error {
   public name: string;
 
   public constructor() {
     super('Crisp Cancellation Exception');
     Object.setPrototypeOf(this, new.target.prototype);
-    this.name = CrispCancellationError.name;
+    this.name = Cancel.name;
   }
 }
 
@@ -21,7 +21,7 @@ export class CrispCancellationError extends Error {
  * @returns {boolean}
  */
 export function isCancel(error: Error): boolean {
-  return error instanceof CrispCancellationError;
+  return error instanceof Cancel;
 }
 
 /**
