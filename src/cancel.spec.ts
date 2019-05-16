@@ -1,8 +1,8 @@
-import { isCancel, CrispCancellationError } from './cancel';
+import { isCancel, Cancel } from './cancel';
 
 describe('isCancel()', () => {
   it('correctly identifies cancellation errors', () => {
-    const error = new CrispCancellationError();
+    const error = new Cancel();
     expect(isCancel(error)).toEqual(true);
   });
 
