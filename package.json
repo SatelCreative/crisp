@@ -3,7 +3,7 @@
   "scripts": {
     "start": "tsdx -i src --name Crisp watch",
     "build": "tsdx -i src --name Crisp build",
-    "lint": "eslint src/*",
+    "lint": "eslint src/*.ts",
     "test": "tsdx test --testMatch='<rootDir>/src/**/*.spec.ts'",
     "browser": "jest test/browser.test.js"
   },
