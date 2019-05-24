@@ -60,9 +60,9 @@ describe('CancelableFactory().cancelify()', () => {
   it('works as expected with CancelableFactory().onCancel()', async () => {
     // Manual timeout to ensure the
     // timeout 10000 doesn't kill CI
-    setTimeout(() => {
-      throw new Error('This test failed');
-    }, 200);
+    const u = setTimeout(() => {
+      throw new Error('Timeout!');
+    }, 100);
 
     const C = CancelableFactory();
 
@@ -110,10 +110,11 @@ describe('CancelableFactory().cancelify()', () => {
     C.cancel();
 
     await cancelableTimeout(1);
-
     expect(finallyUnsubbed).toEqual(true);
 
     // Make sure we are not leaking
     C.cancel();
+
+    clearTimeout(u);
   });
 });
