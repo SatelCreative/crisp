@@ -13,7 +13,7 @@ export interface Params {
  * Legacy filter function type
  * @deprecated
  */
-export type FilterFunction = (entity: any) => boolean;
+export type LegacyFilterFunction = (entity: any) => boolean;
 
 /**
  * An array of the requested api object. Generally based on a template

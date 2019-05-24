@@ -1,18 +1,19 @@
 // @flow
-import { Cancel, isCancel } from './cancel';
+import { Cancel, isCancel, CancelableFactory } from './cancel';
 import request from './request';
 import { normalizeQuery, mapify } from './utils';
 
-import { FilterFunction, Params, Payload } from './typesLegacy';
+import { LegacyFilterFunction, Params, Payload } from './typesLegacy';
+import { FilterFunction } from './types';
 
 /**
  * Input options
  * @deprecated
  */
-export interface FilterConfig {
+export interface LegacyFilterConfig {
   url: string;
   template: string;
-  filter?: FilterFunction;
+  filter?: LegacyFilterFunction;
   params?: Params;
 }
 
@@ -20,7 +21,7 @@ export interface FilterConfig {
  * Legacy filter class
  * @deprecated
  */
-class Filter {
+class LegacyFilter {
   // Config
   private url: string;
   private template: string;
@@ -35,7 +36,7 @@ class Filter {
   private pages: number | undefined;
   private offset: number = 0;
 
-  public constructor({ url, template, filter, params }: FilterConfig) {
+  public constructor({ url, template, filter, params }: LegacyFilterConfig) {
     // Add default vars
     this.url = url;
     this.template = template;
@@ -301,4 +302,51 @@ class Filter {
   }
 }
 
-export default Filter;
+export interface FilterConfig<E> {
+  /**
+   * Path of the url (`/collections/all`)
+   */
+  path: string;
+
+  /**
+   * Template extension used. If template is
+   * `collection.foo.liquid` provide `foo`
+   */
+  template: string;
+
+  /**
+   * Any additional url query parameters
+   * beyond `view` and `page` which are
+   * handled internally
+   */
+  params?: Params;
+
+  /**
+   * A filter function similar to that
+   * used by Array.filter
+   */
+  filter?: FilterFunction<E>;
+}
+
+/**
+ * Creates a filter instance that can
+ * be used to load and filter items
+ *
+ * @template E
+ * @param {FilterConfig<E>} config
+ */
+function FilterFactory<E = any>(config: FilterConfig<E>) {
+  const Cancelable = CancelableFactory();
+
+  function get() {
+    const unsubscribe = Cancelable.onCancel(() => {
+      console.log('cancelled');
+    });
+  }
+
+  return {
+    cancel: Cancelable.cancel()
+  };
+}
+
+export default LegacyFilter;

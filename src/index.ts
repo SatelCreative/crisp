@@ -1,9 +1,9 @@
 import version from './version';
 import request from './request';
 import { isCancel } from './cancel';
-import FilterClass, { FilterConfig } from './filter';
+import FilterClass, { LegacyFilterConfig } from './filter';
 
-const Filter = (config: FilterConfig) => new FilterClass(config);
+const Filter = (config: LegacyFilterConfig) => new FilterClass(config);
 
 // Support tree shaking
 export { version, request, isCancel, Filter };

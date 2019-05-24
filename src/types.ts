@@ -46,3 +46,9 @@ export interface TemplatePayload<E = any> {
    */
   payload: E[];
 }
+
+/**
+ * Basic filter function. Works essentially
+ * the same way that `Array.filter` works
+ */
+export type FilterFunction<E = any> = (item: E) => boolean;

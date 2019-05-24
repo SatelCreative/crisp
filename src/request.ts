@@ -5,7 +5,7 @@ import { TemplatePayload } from './types';
  * Makes a cancelable XMLHttpRequest to a given url
  * and then attempts to parse the response as JSON
  *
- * @template R data response that is expected
+ * @template E data response that is expected
  * @param {string} url url to fetch the data from
  * @param {CancelRef} [cancelRef] callback to receive a cancel
  */
