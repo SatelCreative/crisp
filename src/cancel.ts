@@ -65,15 +65,15 @@ export function CancelableFactory() {
    * Cancel all outstanding work
    */
   function cancel() {
-    cancelCallbacks.forEach(cb => {
+    while (cancelCallbacks.length) {
       try {
-        cb();
+        (cancelCallbacks as any).pop()();
       } catch (e) {
         if (!isCancel(e)) {
           throw e;
         }
       }
-    });
+    }
 
     while (cancelTokens.length) {
       (cancelTokens as any).pop()();
@@ -109,7 +109,7 @@ export function CancelableFactory() {
           });
 
           // Wrap the original function.
-          // Only resolve / reject. Only execute if
+          // Only resolve / reject if
           // not cancelled
           try {
             const result = await cancelee(...args);

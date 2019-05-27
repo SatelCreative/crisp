@@ -1,12 +1,12 @@
 import version from './version';
 import request from './request';
 import { isCancel } from './cancel';
-import FilterClass, { LegacyFilterConfig } from './filter';
+import FilterClass, { LegacyFilterConfig, FilterFactory } from './filter';
 
 const Filter = (config: LegacyFilterConfig) => new FilterClass(config);
 
 // Support tree shaking
-export { version, request, isCancel, Filter };
+export { version, request, isCancel, Filter, FilterFactory };
 
 export interface Crisp {
   /**

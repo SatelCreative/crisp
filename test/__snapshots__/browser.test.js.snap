@@ -404,3 +404,83 @@ Object {
   "total": 500,
 }
 `;
+
+exports[`Browser Testing browser/test generates expected output: test 1`] = `
+Array [
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Sky Busters Eurofighter Typhoon Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Sky Busters Boeing AH-64 Apache Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox 9 Car Gift Pack",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Elite Rescue Wave Cruiser",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Treasure Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Grow Pro Truck",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Cookstruction Company Mega Mixer Vehicle",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "on-sale",
+      "toys",
+    ],
+    "title": "Matchbox Garage 9-Car Pack Gift Set",
+  },
+  Object {
+    "tags": Array [
+      "egnition-sample-data",
+      "matchbox",
+      "toys",
+    ],
+    "title": "Matchbox Jurassic World Dino Transporters Tyranno-Hauler Vehicle And Figure",
+  },
+]
+`;

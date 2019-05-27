@@ -302,11 +302,17 @@ class LegacyFilter {
   }
 }
 
+/**
+ * After testing, this seems to
+ * be the best page size for perf
+ */
+const PAGE_SIZE = 24;
+
 export interface FilterConfig<E> {
   /**
    * Path of the url (`/collections/all`)
    */
-  path: string;
+  url: string;
 
   /**
    * Template extension used. If template is
@@ -335,17 +341,136 @@ export interface FilterConfig<E> {
  * @template E
  * @param {FilterConfig<E>} config
  */
-function FilterFactory<E = any>(config: FilterConfig<E>) {
+export function FilterFactory<E = any>(config: FilterConfig<E>) {
   const Cancelable = CancelableFactory();
 
-  function get() {
-    const unsubscribe = Cancelable.onCancel(() => {
-      console.log('cancelled');
+  // Stores the number of pages of
+  // a particular resource that are
+  // contain items. Unknown when null
+  let pages: number | null = null;
+
+  // Cancel tokens corresponding to
+  // pages of items
+  let requestCancelTokens: { [key: number]: () => void } = {};
+
+  function cancelOutstandingRequests(after: number) {
+    Object.keys(requestCancelTokens).forEach(key => {
+      const page = Number.parseInt(key, 10);
+
+      if (page > after) {
+        requestCancelTokens[page]();
+      }
+    });
+  }
+
+  /**
+   * Internal function that will
+   * reset all of the internal state
+   */
+  function reset() {
+    pages = null;
+    requestCancelTokens = {};
+  }
+
+  // Reset when cancelled
+  Cancelable.onCancel(reset);
+
+  /**
+   * Internal function to handle cancellation
+   * logic around xhr requests
+   *
+   * @private
+   * @param {number} page
+   */
+  const load = Cancelable.cancelify(
+    async (page: number): Promise<E[]> => {
+      // Check if we need to make the request
+      if (pages && pages < page) {
+        return [];
+      }
+
+      // @todo check the cache...
+
+      let unsub = () => {};
+      const cancelToken = (c: () => void) => {
+        if (requestCancelTokens[page]) {
+          console.warn(
+            `Overwriting cancellation token for page ${page}. This is probably a Crisp bug`
+          );
+        }
+        requestCancelTokens[page] = c;
+        unsub = Cancelable.onCancel(c);
+      };
+
+      const { query } = normalizeQuery(config.url, {
+        ...(config.params || {}),
+        view: config.template,
+        page
+      });
+
+      try {
+        const response = await request<E>(
+          `${config.url}?${query}`,
+          cancelToken
+        );
+
+        if (!pages) {
+          pages = response.pages;
+          cancelOutstandingRequests(pages);
+        }
+
+        return response.payload;
+      } catch (e) {
+        if (isCancel(e)) {
+          return [];
+        }
+
+        throw e;
+      } finally {
+        unsub();
+      }
+    }
+  );
+
+  async function get(amount: number) {
+    // Figure out how many pages to load
+    const pagesToLoad = Math.ceil((amount / PAGE_SIZE) * 10);
+
+    const promises: Promise<E[]>[] = [];
+    for (let i = 1; i <= pagesToLoad; i += 1) {
+      promises.push(load(i));
+    }
+
+    return new Promise<E[]>(async (res, rej) => {
+      let results: E[] = [];
+
+      try {
+        await mapify<E[]>(promises, ({ payload, error }) => {
+          if ((error && !isCancel(error)) || !payload) {
+            throw error;
+          }
+
+          const valid = payload.filter((product: any) =>
+            product.tags.includes('on-sale')
+          );
+
+          results = results.concat(valid);
+
+          if (results.length >= amount) {
+            res(results);
+          }
+        });
+      } catch (e) {
+        rej(e);
+      }
+
+      res(results.slice(0, amount));
     });
   }
 
   return {
-    cancel: Cancelable.cancel()
+    cancel: Cancelable.cancel(),
+    get: Cancelable.cancelify(get)
   };
 }
 

@@ -76,7 +76,6 @@ describe('CancelableFactory().cancelify()', () => {
         }
 
         internallyCancelled = true;
-        unsubscribe();
         throw new Cancel();
       });
 
