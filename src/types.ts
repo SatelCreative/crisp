@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type URL = string;
 type Template = string;
 type Page = number;
