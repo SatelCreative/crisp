@@ -29,7 +29,7 @@ You don't need Crisp to accomplish this. It is overkill. If this is your goal th
 
 ### You want to filter a giant catalog of products
 
-Crisp does it's best to optimize for performance but it can only take it so far. If you are wanting to filter thousands of products without narrowing down the selection first (think `/collections/all`) Crisp may take too long to return results. In this case consider restructuring your "funnel" if you want to use Crisp, or use an app instead.
+Crisp does its best to optimize for performance but it can only take it so far. If you are wanting to filter thousands of products without narrowing down the selection first (think `/collections/all`) Crisp may take too long to return results. In this case consider restructuring your "funnel" if you want to use Crisp, or use an app instead.
 
 ## How it Works
 
@@ -49,13 +49,13 @@ See the [/templates](/templates) folder for some pre-populated examples of templ
 
 The client is where the "magic" happens. This is where all of the data loading, filtering, and configuration lives.
 
-At it's most basic, you ask the client to get you some, for example, products from the `shoes` collection. The client will load data from the template url (`/collections/shoes?view=crisp`), process it, and return to you to display to the user.
+At its most basic, you ask the client to get you some, for example, products from the `shoes` collection. The client will load data from the template url (`/collections/shoes?view=crisp`), process it, and return to you to display to the user.
 
 This gets more complicated when you ask tougher questions. If this time you want Size `9` or `10` running shoes in pink or purple things get a little more complicated under the hood but the interface you communicate with remains the same.
 
 To get a little bit more into it, Crisp tries to find a balance between performance and resource usage while loading and filtering. This involves making some educated guesses in terms of how many shoes to load immediately and cancelling any extraneous requests made from the guesses as quickly as possible. Of course there are still cases where there is only one item that matches the filter constraints and it is the very last one, but in most cases Crisp works quite quickly.
 
-## Seo Concerns
+## SEO Concerns
 
 TODO
 
@@ -1001,7 +1001,7 @@ This will now generate a function whose logic can be expressed like
 
 `(size 'small' OR 'medium') AND color 'red'`
 
-This is because the root `node` enforces logical AND on it's children by default while all other nodes enforce logical OR. This can be overwridden by using the `and` property of a node or by passing `and: boolean` into the `Filter` options.
+This is because the root `node` enforces logical AND on its children by default while all other nodes enforce logical OR. This can be overwridden by using the `and` property of a node or by passing `and: boolean` into the `Filter` options.
 
 ### Selection
 
