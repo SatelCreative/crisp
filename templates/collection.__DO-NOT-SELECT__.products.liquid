@@ -1,0 +1,57 @@
+{% comment %} 
+  This file must output valid JSON for Crisp.Collection to work
+  This can be checked by visiting:
+  https://<domain>.myshopify.com/collections/all&view=__DO-NOT-SELECT__.products
+  and ensuring the generated JSON is valid
+
+  NOTE: The prefix '__DO-NOT-SELECT__' was chosen for the frontend:
+    - '_' will be last in the templates dropdown
+    - the name makes it clear what not to do
+{% endcomment %}
+
+{% comment %} 
+  Crisp.SearchableCollection:
+    - Likely makes sense to have identical search & collection payloads
+{% endcomment %}
+
+{% comment %} DO NOT SKIP ITEMS VIA LIQUID. THE PAYLOAD LENGTH MUST BE 24 (except the final page) {% endcomment %}
+
+{% layout none %}
+
+{% comment %} As of 4.0.0+ Crisp REQUIRES a pagination of 24 {% endcomment %}
+{% paginate collection.products by 24 %}
+
+{% comment %} Here is where customization is possible {% endcomment %}
+{% capture products %}
+  {% for product in collection.products %}
+    {% comment %}
+      Adding large fields like 'product.body' will slow down Crisp.Collection
+      loading time fairly drastically. Only include what you absolutely need
+      and use multiple templates if different data is needed in different locations
+      TIP: The '| json' filter in liquid is your friend 
+    {% endcomment %}
+    {
+      "title": {{ product.title | json }},
+      "url": {{ product.url | within: collection | json }},
+      "image": {{ product.featured_image.src | product_img_url: 'medium' | json }}
+    }
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+{% endcapture %}
+
+{% comment %} 
+  These 'headers' are required for Crisp.Collection to function.
+  Do not print any other characters to the document
+{% endcomment %}
+{
+  "total": {{ collection.products_count }},
+  "pages": {{ paginate.pages }},
+  "page": {{ paginate.current_page }},
+  "size": {{ paginate.page_size }},
+  {% comment %}
+    Payload expects an array of arbitrary data. Generally an array of product objects makes sense
+    TIP: Don't forget to strip trailing commas!
+  {% endcomment %}
+  "payload": [{{ products }}]
+}
+{% endpaginate %}

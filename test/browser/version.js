@@ -1,1 +1,2 @@
-arguments[0](Crisp.version);
+/* eslint-disable */
+arguments[0](Crisp.Version);

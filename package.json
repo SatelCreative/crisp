@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0-alpha.0",
+  "version": "4.5.0",
   "scripts": {
     "start": "tsdx -i src --name Crisp watch",
     "build": "tsdx -i src --name Crisp build",
@@ -7,18 +7,25 @@
     "test": "tsdx test --testMatch='<rootDir>/src/**/*.spec.ts'",
     "browser": "jest test/browser.test.js"
   },
+  "dependencies": {
+    "axios": "0.18.0",
+    "babel-polyfill": "6.26.0",
+    "eventemitter3": "3.1.0",
+    "md5": "2.2.1",
+    "tree-model": "1.0.7"
+  },
   "devDependencies": {
     "@types/jest": "24.0.12",
     "@typescript-eslint/eslint-plugin": "1.8.0",
     "@typescript-eslint/parser": "1.8.0",
-    "chromedriver": "74.0.0",
+    "chromedriver": "77.0.0",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.2.0",
     "eslint-plugin-prettier": "3.0.1",
     "jest": "24.8.0",
     "prettier": "1.17.0",
-    "selenium-webdriver": "4.0.0-alpha.1",
-    "tsdx": "0.5.9",
+    "selenium-webdriver": "4.0.0-alpha.5",
+    "tsdx": "0.9.3",
     "typescript": "3.4.5"
   }
 }

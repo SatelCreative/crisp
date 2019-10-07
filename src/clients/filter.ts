@@ -1,41 +1,37 @@
-// @flow
-import { Cancel, isCancel } from './cancel';
-import request from './request';
-import { normalizeQuery, mapify } from './utils';
+/* eslint-disable @typescript-eslint/explicit-member-accessibility */
+import Axios from 'axios';
+import request from '../request';
+import { mapify } from '../utils';
 
-import { FilterFunction, Params, Payload } from './typesLegacy';
+import { FilterFunction, Params, Payload } from '../types';
 
-/**
- * Input options
- * @deprecated
- */
-export interface FilterConfig {
+interface FilterConfig {
   url: string;
   template: string;
   filter?: FilterFunction;
   params?: Params;
 }
 
-/**
- * Legacy filter class
- * @deprecated
+/*
+ * TODO
+ * - Scope loaded
  */
 class Filter {
   // Config
-  private url: string;
-  private template: string;
-  private filter: FilterFunction;
-  private params: Params;
+  url: string;
+  template: string;
+  filter: FilterFunction;
+  params: Params;
 
   // Cancellation
-  private cancelTokens: (() => void)[] = [];
-  private rejectTokens: (() => void)[] = [];
+  cancelTokens: (() => void)[] = [];
+  rejectTokens: (() => void)[] = [];
 
   // Flags
-  private pages: number | undefined;
-  private offset: number = 0;
+  pages: number | undefined;
+  offset: number = 0;
 
-  public constructor({ url, template, filter, params }: FilterConfig) {
+  constructor({ url, template, filter, params }: FilterConfig) {
     // Add default vars
     this.url = url;
     this.template = template;
@@ -44,25 +40,18 @@ class Filter {
   }
 
   /* INTERNAL */
-  private async load(
-    page: number
-  ): Promise<{ payload: Payload; page: number }> {
+  load = async (page: number): Promise<{ payload: Payload; page: number }> => {
     // Check if pages is known
     if ((this.pages && page > this.pages) || this.pages === 0) {
       return { payload: [], page };
     }
 
     // Make the requests
-    const { query } = normalizeQuery(this.url, {
-      view: this.template,
-      ...this.params,
+    const { response, cancel } = request({
+      url: this.url,
+      template: this.template,
+      params: this.params,
       page
-    });
-
-    let cancel = () => {};
-
-    const response = request(`${this.url}?${query}`, c => {
-      cancel = c;
     });
 
     // Add the cancel token
@@ -71,7 +60,7 @@ class Filter {
     // Extract data from response
     try {
       // $flow-ignore TODO figure out
-      const { payload, ...headers } = await response;
+      const { headers, payload } = await response;
 
       // Set pages / loaded
       if (this.pages === undefined) {
@@ -89,17 +78,19 @@ class Filter {
       return { payload, page };
     } catch (e) {
       // Fail quietly on cancel
-      if (isCancel(e)) {
+      if (Axios.isCancel(e)) {
         return { payload: [], page };
       }
       throw e;
     }
-  }
+  };
 
   /* DECORATORS */
-  private async cancelible<T>(func: () => Promise<T>): Promise<T> {
+  // Eslint does not like generics with arrow functions
+  // eslint-disable-next-line func-names
+  cancelible = async function<T>(func: () => Promise<T>): Promise<T> {
     return new Promise(async (res, rej) => {
-      this.rejectTokens.push(() => rej(new Cancel()));
+      this.rejectTokens.push(() => rej(new Axios.Cancel('Canceled by Crisp')));
       try {
         const value = await func();
         res(value);
@@ -107,9 +98,11 @@ class Filter {
         rej(e);
       }
     });
-  }
+  };
 
-  private cancelify<T>(func: () => T): T {
+  // Eslint does not like generics with arrow functions
+  // eslint-disable-next-line func-names
+  cancelify = function<T>(func: () => T): T {
     // Cancel everything
     this.cancelTokens.forEach(cancel => cancel());
     this.cancelTokens = [];
@@ -122,52 +115,73 @@ class Filter {
 
     // Pass through
     return func();
-  }
+  };
 
   /* GETTERS / SETTERS */
-  public setUrl(url: string) {
-    return this.cancelify(() => {
+  setUrl = (url: string) =>
+    this.cancelify(() => {
       this.url = url;
     });
-  }
 
-  public setFilter(filter: FilterFunction) {
-    return this.cancelify(() => {
+  setFilter = (filter: FilterFunction) =>
+    this.cancelify(() => {
       this.filter = filter;
     });
-  }
 
-  public setParams(params: Params) {
+  setParams = (params: Params) =>
     this.cancelify(() => {
       this.params = params;
     });
-  }
 
   // TODO does this need cancelify?
-  public clearOffset() {
+  clearOffset = () => {
     this.offset = 0;
-  }
+  };
 
-  public cancel() {
-    return this.cancelify(() => undefined);
-  }
+  cancel = () => this.cancelify(() => undefined);
 
-  // /* API */
-  public async get({
+  /* API */
+  preview = async ({ number }: { number: number }): Promise<Payload | void> =>
+    this.cancelible(async () => {
+      // Calculate the number of pages required &
+      // create array of that length - [1, 2, ...,pages]
+      const pages = Array.from(
+        new Array(Math.ceil(number / 24)),
+        (_, i) => i + 1
+      );
+
+      // Load payloads
+      const rawPayloads = await Promise.all(pages.map(page => this.load(page)));
+
+      // Retrieve correct value
+      const payloads = rawPayloads.map(({ payload }) => payload);
+
+      // Stitch together
+      const rawPayload = [].concat(...payloads);
+
+      // Cut to length
+      const payload =
+        rawPayload.length < number ? rawPayload : rawPayload.slice(0, number);
+
+      // Return the promise api
+      return payload;
+    });
+
+  get = async ({
     number,
-    offset = 0
+    offset
   }: {
     number: number;
     offset: number;
-  }): Promise<Payload | void> {
-    return this.cancelible(
+  }): Promise<Payload | void> =>
+    this.cancelible(
       () =>
         new Promise(async res => {
           // Needed length
           const length = offset + number;
 
           // Storage
-          let filtered: any[] = [];
+          let filtered = [];
 
           // Resolved flag
           let resolved = false;
@@ -182,7 +196,7 @@ class Filter {
           }) => {
             // Handle errors
             if (error) {
-              if (isCancel(error)) {
+              if (Axios.isCancel(error)) {
                 return;
               }
               throw error;
@@ -287,9 +301,8 @@ class Filter {
           }
         })
     );
-  }
 
-  public getNext({ number }: { number: number }): Promise<Payload | void> {
+  getNext = ({ number }: { number: number }): Promise<Payload | void> => {
     // Calculate offset
     const { offset } = this;
 
@@ -298,7 +311,9 @@ class Filter {
 
     // Return
     return this.get({ number, offset });
-  }
+  };
+
+  // TODO get page
 }
 
 export default Filter;

@@ -4,10 +4,12 @@
     "target": "es5",
     "module": "esnext",
     "lib": ["dom", "esnext"],
-    "strict": true,
-    "noImplicitAny": true,
+    "strict": false,
+    "noImplicitAny": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "declaration": false
   }
 }

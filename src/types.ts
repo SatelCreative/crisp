@@ -1,48 +1,96 @@
-/**
- * An object of query parameters
- * @interface Params
- */
+type URL = string;
+type Template = string;
+type Page = number;
+
 export interface Params {
-  [key: string]: string | number | undefined;
+  sort_by?: string;
+  types?: string;
+  q?: string;
 }
 
 /**
- * The generic shape that template data is expected
- * to take
- *
- * @export
- * @interface TemplatePayload
- * @template E
+ * Accepts an api object and returns whether to keep or remove it from the response
  */
-export interface TemplatePayload<E = any> {
-  /**
-   * Total number of items this specific
-   * query contains. Will be broken into
-   * multiple pages of 24 items each
-   */
-  total: number;
+export type FilterFunction = (arg0: any) => boolean;
 
-  /**
-   * The number of pages of items this
-   * specific query contains
-   */
-  pages: number;
-
-  /**
-   * The current page that this payload
-   * is referring to
-   */
-  page: number;
-
-  /**
-   * The number of items per page. This
-   * should currently always be 24
-   */
-  size: number;
-
-  /**
-   * Array of the items loaded for the
-   * current page
-   */
-  payload: E[];
+export interface Request {
+  url: URL;
+  template: Template;
+  page?: Page;
+  params?: Params;
 }
+
+export interface Headers {
+  size: number;
+  total: number;
+  page: number;
+  pages: number;
+}
+
+/**
+ * An array of the requested api object. Generally based on a template
+ */
+export type Payload = any[];
+
+/**
+ * A callback function that either contains the requested payload or an error. Remember to check if the error is due to cancellation via {@link isCancel}
+ * @param {object} args
+ * @param {Payload} [args.payload = undefined]
+ * @param {Error} [args.error = undefined]
+ * @return {undefined}
+ * @example
+ * collection.get({
+ *  number: 48,
+ *  callback: function callback(response) {
+ *    var payload = response.payload;
+ *    var error = response.error;
+ *
+ *    if (Crisp.isCancel(error)) {
+ *      // Can usually ignore
+ *      return;
+ *    }
+ *
+ *    if (error) {
+ *      // Handle error
+ *      return;
+ *    }
+ *
+ *    // Use payload
+ *  }
+ *});
+ */
+export type Callback = (arg0: { payload?: Payload; error?: Error }) => void;
+
+export interface Response {
+  headers: Headers;
+  payload: Payload;
+}
+
+export type Cancel = () => void;
+
+/**
+ * Defines in what order products are returned
+ * @see {@link https://help.shopify.com/themes/liquid/objects/collection#collection-default_sort_by|shopify sort order}
+ */
+export type CollectionOrder =
+  | 'default'
+  | 'manual'
+  | 'best-selling'
+  | 'title-ascending'
+  | 'title-descending'
+  | 'price-ascending'
+  | 'price-descending'
+  | 'created-ascending'
+  | 'created-descending';
+
+/** */
+export type SearchField =
+  | 'title'
+  | 'handle'
+  | 'body'
+  | 'vendor'
+  | 'product_type'
+  | 'tag'
+  | 'variant'
+  | 'sku'
+  | 'author';

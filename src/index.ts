@@ -1,44 +1,50 @@
-import version from './version';
-import request from './request';
-import { isCancel } from './cancel';
-import FilterClass, { FilterConfig } from './filter';
+import Axios from 'axios';
+import { Collection, Search, SearchableCollection } from './clients';
+import Filter from './filter';
+import { version } from '../package.json';
 
-const Filter = (config: FilterConfig) => new FilterClass(config);
+/**
+ * Active version of Crisp
+ * @name Version
+ * @example
+ * console.log(Crisp.Version);
+ * // 0.0.0
+ */
 
-// Support tree shaking
-export { version, request, isCancel, Filter };
+// This is populated by rollup
+/* eslint-disable no-undef */
+// $flow-ignore
+const Version = version;
+/* eslint-enable no-undef */
 
-export interface Crisp {
-  /**
-   * Installed version of Crisp
-   */
-  version: string;
+/**
+ * A function to determine if an error is due to cancellation
+ * @name isCancel
+ * @kind function
+ * @param {error} error
+ * @return {boolean}
+ * @example
+ * const cancelled = Crisp.isCancel(error);
+ */
+const isCancel = Axios.isCancel;
 
-  /**
-   * Make a cancellable request
-   */
-  request: typeof request;
-
-  /**
-   * Checks if an error resulted from cancellation
-   */
-  isCancel: (error: Error) => boolean;
-
-  /**
-   * @deprecated
-   *
-   * @type {typeof Filter}
-   * @memberof Crisp
-   */
-  Filter: typeof Filter;
-}
-
-// Support UMD
-const Crisp: Crisp = {
-  version,
-  request,
+const Crisp = {
+  Collection,
+  Search,
+  SearchableCollection,
+  Filter,
   isCancel,
-  Filter
+  Version
+};
+
+export {
+  Crisp,
+  Collection,
+  Search,
+  SearchableCollection,
+  Filter,
+  isCancel,
+  Version
 };
 
 export default Crisp;
