@@ -75,7 +75,7 @@ Now, knowing which templates we will be installing, head over to the [/templates
 
 There are a number of ways to install the client depending on your bundler or toolchain. For this guide however, we will be simply adding it as a script tag.
 
-Head over to the [latest release](/SatelCreative/crisp/releases/latest) and download `crisp.umd.js`. Next, upload this to your themes `/assets` folder. Now we are ready to import it from the theme.
+Head over to the [latest release](https://github.com/SatelCreative/crisp/releases) and download `crisp.umd.js`. Next, upload this to your themes `/assets` folder. Now we are ready to import it from the theme.
 
 > As with any dependency, it is good practice to only import resources on pages where they are required. For this example however, we will just be adding a global import in `theme.liquid`.
 
