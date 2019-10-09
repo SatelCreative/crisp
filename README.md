@@ -91,7 +91,7 @@ We can now make sure the client has been installed correctly by running
 Crisp.Version
 ```
 
-It should print a version number corresponding to the [latest release](/releases/latest) (or whichever version you are using)
+It should print a version number corresponding to the [latest release](https://github.com/SatelCreative/crisp/releases) (or whichever version you are using)
 
 Next, we can test out loading and filtering some resources. The exact code you will need to run will depend on which templates you installed by here is an example of loading products from a collection template in the console
 
