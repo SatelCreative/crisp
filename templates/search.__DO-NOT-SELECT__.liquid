@@ -34,15 +34,15 @@
     {
       {% if item.object_type == 'article' %}
         "id": {{ item.id | json }},
-        "title": {{ item.title | json }},
+        "title": {{ item.title | escape | json }}
       {% elsif item.object_type == 'page' %}
         "id": {{ item.id | json }},
-        "title": {{ item.title | json }},
+        "title": {{ item.title | escape | json }}
       {% else %}
         "id": {{ item.id | json }},
-        "title": {{ item.title | json }},
+        "title": {{ item.title | escape | json }},
         "url": {{ item.url | json }},
-        "image": {{ item.featured_image.src | json }}
+        "image": {{ item.featured_image.src | json }},
         {% comment %} This is required in products to enable SearchableCollection {% endcomment %}
         "tags": [
           {% for t in product.tags %}
