@@ -31,7 +31,7 @@
       TIP: The '| json' filter in liquid is your friend 
     {% endcomment %}
     {
-      "title": {{ product.title | json }},
+      "title": {{ product.title | escape | json }},
       "url": {{ product.url | within: collection | json }},
       "image": {{ product.featured_image.src | product_img_url: 'medium' | json }}
     }
